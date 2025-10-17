@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenue sur Learn Arabic 🌙</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f5f6f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: #2E7D32; /* vert foncé */
+            color: white;
+            text-align: center;
+            padding: 25px 10px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 0.5px;
+        }
+        .content {
+            padding: 35px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .content h2 {
+            color: #2E7D32;
+            font-size: 20px;
+        }
+        .button {
+            display: inline-block;
+            margin: 25px 0;
+            padding: 12px 26px;
+            background: #388E3C;
+            color: white !important;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        .footer {
+            background: #f1f1f1;
+            text-align: center;
+            padding: 15px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Learn Arabic 📖</h1>
+    </div>
+
+    <div class="content">
+        <h2>Bienvenue <span th:text="${username}">Utilisateur</span> !</h2>
+        <p>Nous sommes ravis de vous compter parmi les nouveaux étudiants de <b>Learn Arabic</b>.</p>
+
+        <p>
+            Vous venez de franchir une belle étape vers la compréhension de la langue arabe 💫.<br>
+            Commencez dès maintenant votre parcours en explorant vos premières leçons :
+        </p>
+
+        <p style="text-align: center;">
+            <a th:href="${verificationLink}" class="button">Accéder à Learn Arabic</a>
+        </p>
+
+        <p>Si vous n’avez pas demandé cette inscription, vous pouvez ignorer cet email.</p>
+    </div>
+
+    <div class="footer">
+        Learn Arabic © 2025 — Tous droits réservés
+    </div>
+</div>
+</body>
+</html>

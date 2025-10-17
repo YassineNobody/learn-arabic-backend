@@ -1,0 +1,63 @@
+spring:
+  config:
+    import: optional:file:.env.properties
+
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+  application:
+    name: learnarabic
+
+  jackson:
+    default-property-inclusion: non_null
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 15MB
+
+  mail:
+    host: ${SPRING_MAIL_HOST}
+    port: ${SPRING_MAIL_PORT}
+    username: ${SPRING_MAIL_USERNAME}
+    password: ${SPRING_MAIL_PASSWORD}
+    from: ${MAIL_FROM}
+    properties:
+      mail:
+        smtp:
+          auth: ${SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH}
+          starttls:
+            enable: ${SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE}
+          ssl:
+            enable: ${SPRING_MAIL_PROPERTIES_MAIL_SMTP_SSL_ENABLE}
+          connectiontimeout: ${SPRING_MAIL_PROPERTIES_MAIL_SMTP_CONNECTIONTIMEOUT}
+          timeout: ${SPRING_MAIL_PROPERTIES_MAIL_SMTP_TIMEOUT}
+          writetimeout: ${SPRING_MAIL_PROPERTIES_MAIL_SMTP_WRITETIMEOUT}
+
+# 🔐 JWT Configuration
+jwt:
+  secret: ${JWT_SECRET}
+
+# ☁️ Cloudinary Configuration
+cloudinary:
+  cloud-name: ${CLOUDINARY_CLOUD_NAME}
+  api-key: ${CLOUDINARY_API_KEY}
+  api-secret: ${CLOUDINARY_API_SECRET}
+
+# 🌐 Frontend URLs
+app:
+  frontend:
+    reset-password-url: ${FRONTEND_RESET_PASSWORD_URL}
+    verify-email-url: ${FRONTEND_VERIFY_EMAIL_URL}

@@ -1,0 +1,67 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.5.6'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com'
+version = '0.0.1-SNAPSHOT'
+description = 'learn arabic'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+    // 🌍 Base Spring
+    implementation 'io.github.cdimascio:dotenv-java:3.0.0'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    implementation 'com.github.slugify:slugify:3.0.6'
+
+    // 📦 Utilitaires
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+    implementation 'org.im4java:im4java:1.4.0'
+    implementation 'com.cloudinary:cloudinary-http44:1.39.0'
+
+    // 📧 Mail + Template
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.3.0'
+
+    // 🔑 JWT
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+    // 📝 Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    // 🛠️ Dev
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    // 🗄️ Database
+    runtimeOnly 'org.postgresql:postgresql'
+
+    // ✅ Tests
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
